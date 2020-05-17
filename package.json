@@ -1,0 +1,51 @@
+{
+  "_from": "jdqy-cli",
+  "_id": "jdqy-cli@0.3.0",
+  "_inBundle": false,
+  "_integrity": "sha512-9wOZbLMV6B4NcrMkET4kNim7zaGyntEp+gXqCFlf2SUgqGi4c3sdpcjQLPT3NddUihzJRg7MlCaGHQwkqWl7dA==",
+  "_location": "/jdqy-cli",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jdqy-cli",
+    "name": "jdqy-cli",
+    "escapedName": "jdqy-cli",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/jdqy-cli/-/jdqy-cli-0.3.0.tgz",
+  "_shasum": "beb8cfdb44759aafe7a1a97a8fe15d91bf630f46",
+  "_spec": "jdqy-cli",
+  "_where": "/Users/wukunyun/Desktop/jdqy-cli",
+  "bin": {
+    "admin-cli": "bin/cmd",
+    "ac": "bin/cmd"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "copyfiles": "^2.2.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^7.1.0",
+    "log-symbols": "^3.0.0",
+    "ora": "^4.0.3",
+    "shelljs": "^0.8.4",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "deprecated": false,
+  "description": "脚手架CLI工具",
+  "keywords": [
+    "脚手架"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "jdqy-cli",
+  "scripts": {},
+  "version": "0.3.0"
+}
