@@ -67,25 +67,19 @@ const validateProjectName = (name, createFn) => new Promise(resolve => {
 
 const runInquirer = () => inquirer.prompt(promptListByPackage)
 
-const downloadLibrary = (answer) => {
-    let loading = ora('脚手架下载中...')
-    loading.start('脚手架下载中...')
-    return download(projectName, libraryURL).then(() => {
-        loading.succeed('脚手架下载完成')
-        const fileName = `${projectName}/package.json`
-        return {fileName, answer}
-    }, () => {
-        loading.fail('脚手架下载失败')
-        resetName()
-    })
-}
+// const downloadLibrary = (answer) => {
+//     let loading = ora('脚手架下载中...')
+//     loading.start('脚手架下载中...')
+//     return download(projectName, libraryURL).then(() => {
+//         loading.succeed('脚手架下载完成')
+//         const fileName = `${projectName}/package.json`
+//         return {fileName, answer}
+//     }, () => {
+//         loading.fail('脚手架下载失败')
+//         resetName()
+//     })
+// }
 
-const editLibrary = ({fileName, answer}) => {
-    answer.name = projectName
-    updateJsonFile(fileName, answer).then(() => {
-        console.log(logSymbols.success, chalk.green('脚手架安装成功'))
-    }).finally(() => resetName())
-}
 
 const copyTemplate = (answer) => new Promise(resolve => {
     const fileName = `${projectName}/package.json`
@@ -99,16 +93,23 @@ const copyTemplate = (answer) => new Promise(resolve => {
         })
 })
 
+const editLibrary = ({fileName, answer}) => {
+    answer.name = projectName
+    updateJsonFile(fileName, answer).then(() => {
+        console.log(logSymbols.success, chalk.green('📦  Installing additional dependencies...'))
+    }).finally(() => resetName())
+}
+
 const installDep = () => {
-    const lqProcess = ora('The installation is complete')
+    const lqProcess = ora(`🎉  Successfully created project ${chalk.yellow(projectName)}`)
     lqProcess.start()
     //'npm i --registry=http://192.168.1.103:8081/repository/npm-elementadmin-group/'
     let cmd = 'cd ' + projectName + ' && ' + 'npm i'
     console.log(cmd)
     if (shell.exec(cmd).code !== 0) {
         lqProcess.fail()
-        console.error(chalk.red('依赖安装失败，或可手动安装'))
-        process.exit(1);
+        console.error(chalk.red('❌ create failed'))
+        process.exit(1)
     }
     lqProcess.succeed()
 }
@@ -118,7 +119,6 @@ const resetName = () => projectName = ''
 module.exports = {
     validateProjectName,
     runInquirer,
-    downloadLibrary,
     editLibrary,
     copyTemplate,
     installDep
