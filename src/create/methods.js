@@ -95,16 +95,16 @@ const copyTemplate = (answer) => new Promise(resolve => {
             let settingPath = path.resolve(projectName, 'src/settings.js')
             let content = fs.readFileSync(settingPath, 'utf8')
             fs.writeFileSync(settingPath, content)
-            console.log('脚手架安装成功')
             resolve({fileName, answer})
         })
 })
 
 const installDep = () => {
-    const lqProcess = ora('开始安装依赖包...')
+    const lqProcess = ora('The installation is complete')
     lqProcess.start()
     //'npm i --registry=http://192.168.1.103:8081/repository/npm-elementadmin-group/'
     let cmd = 'cd ' + projectName + ' && ' + 'npm i'
+    console.log(cmd)
     if (shell.exec(cmd).code !== 0) {
         lqProcess.fail()
         console.error(chalk.red('依赖安装失败，或可手动安装'))
