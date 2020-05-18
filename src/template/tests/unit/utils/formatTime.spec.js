@@ -6,7 +6,7 @@ describe('Utils:formatTime', () => {
   it('ten digits timestamp', () => {
     expect(formatTime((d / 1000).toFixed(0))).toBe('7月13日17时54分')
   })
-  it('test now', () => {
+  it('test1 now', () => {
     expect(formatTime(+new Date() - 1)).toBe('刚刚')
   })
   it('less two minute', () => {

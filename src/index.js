@@ -17,6 +17,14 @@ program
     create(name.args[0])
 });
 
+program
+    .command('add')
+    .description('add a new page')
+    .alias('c')
+    .action((name) => {
+        create(name.args[0])
+    });
+
 
 program.version(require('../package.json').version, '-v --version').parse(process.argv);
 

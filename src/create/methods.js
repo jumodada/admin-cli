@@ -96,7 +96,7 @@ const copyTemplate = (answer) => new Promise(resolve => {
 const editLibrary = ({fileName, answer}) => {
     answer.name = projectName
     updateJsonFile(fileName, answer).then(() => {
-        console.log(logSymbols.success, chalk.green('📦  Installing additional dependencies...'))
+        console.log(chalk.green('📦  Installing additional dependencies...'))
     }).finally(() => resetName())
 }
 

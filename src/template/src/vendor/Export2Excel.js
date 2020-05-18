@@ -141,7 +141,7 @@ export function export_table_to_excel(id) {
 
   saveAs(new Blob([s2ab(wbout)], {
     type: "application/octet-stream"
-  }), "test.xlsx")
+  }), "test1.xlsx")
 }
 
 export function export_json_to_excel({
